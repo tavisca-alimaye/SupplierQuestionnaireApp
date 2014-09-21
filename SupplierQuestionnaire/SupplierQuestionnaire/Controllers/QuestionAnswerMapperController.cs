@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SupplierQuestionnaire.Models;
+using System.Data.SqlClient;
 
 namespace SupplierQuestionnaire.Controllers
 {
@@ -146,6 +147,23 @@ namespace SupplierQuestionnaire.Controllers
             ViewBag.questionString = new SelectList(questionList);
 
             var reqdResult = from t in db.QuestionAnswerMappers select t;
+
+
+            if (!String.IsNullOrEmpty(questionString))
+            {
+                int quesId = -1;
+                var question = from q in db.Questions where q.QuestionText==questionString select q;
+                /* Manipulation on basis that every question is unique so there will be only one row in question*/
+                foreach (var row in question)
+                {
+                    quesId = row.Id;
+                }
+                if (quesId != -1)
+                {
+                    var answers = from rec in db.QuestionAnswerMappers where rec.QuestionId == quesId select rec;
+                    return View(answers);
+                }
+            }
 
             return View(reqdResult);
         }
