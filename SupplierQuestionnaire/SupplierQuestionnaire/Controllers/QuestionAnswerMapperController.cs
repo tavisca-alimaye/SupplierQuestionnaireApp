@@ -134,7 +134,22 @@ namespace SupplierQuestionnaire.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+
+        public ActionResult SearchByQuestion(string questionString)
+        {
+            var questionList = new List<string>();
+            
+            var questions = from q in db.Questions select q.QuestionText;
+            
+            questionList.AddRange(questions.Distinct());
+
+            ViewBag.questionString = new SelectList(questionList);
+
+            var reqdResult = from t in db.QuestionAnswerMappers select t;
+
+            return View(reqdResult);
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
