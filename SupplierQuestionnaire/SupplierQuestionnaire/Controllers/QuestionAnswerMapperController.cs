@@ -25,9 +25,13 @@ namespace SupplierQuestionnaire.Controllers
         //
         // GET: /QuestionAnswerMapper/Details/5
 
-        public ActionResult Details(int id = 0)
+        public ActionResult Details(int quesId,int suppId)
         {
-            QuestionAnswerMapper questionanswermapper = db.QuestionAnswerMappers.Find(id);
+            QuestionAnswerMapper questionanswermapper = db.QuestionAnswerMappers.Find(quesId,suppId);
+            Question question = db.Questions.Find(quesId);
+            ViewBag.questionText = question.QuestionText;
+            Supplier supplier = db.Suppliers.Find(suppId);
+            ViewBag.supplierName = supplier.Name;
             if (questionanswermapper == null)
             {
                 return HttpNotFound();
@@ -67,9 +71,13 @@ namespace SupplierQuestionnaire.Controllers
         //
         // GET: /QuestionAnswerMapper/Edit/5
 
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(int quesId, int suppId)
         {
-            QuestionAnswerMapper questionanswermapper = db.QuestionAnswerMappers.Find(id);
+            QuestionAnswerMapper questionanswermapper = db.QuestionAnswerMappers.Find(quesId,suppId);
+            Question question = db.Questions.Find(quesId);
+            ViewBag.questionText = question.QuestionText;
+            Supplier supplier = db.Suppliers.Find(suppId);
+            ViewBag.supplierName = supplier.Name;
             if (questionanswermapper == null)
             {
                 return HttpNotFound();
@@ -100,9 +108,13 @@ namespace SupplierQuestionnaire.Controllers
         //
         // GET: /QuestionAnswerMapper/Delete/5
 
-        public ActionResult Delete(int id = 0)
+        public ActionResult Delete(int quesId,int suppId)
         {
-            QuestionAnswerMapper questionanswermapper = db.QuestionAnswerMappers.Find(id);
+            QuestionAnswerMapper questionanswermapper = db.QuestionAnswerMappers.Find(quesId,suppId);
+            Question question = db.Questions.Find(quesId);
+            ViewBag.questionText = question.QuestionText;
+            Supplier supplier = db.Suppliers.Find(suppId);
+            ViewBag.supplierName = supplier.Name;
             if (questionanswermapper == null)
             {
                 return HttpNotFound();
@@ -122,7 +134,7 @@ namespace SupplierQuestionnaire.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

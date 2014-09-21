@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Web, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -344,16 +345,12 @@
     <Content Include="Views\Question\Create.cshtml" />
     <Content Include="Views\Question\Edit.cshtml" />
     <Content Include="Views\Question\Delete.cshtml" />
-    <Content Include="Views\QuestionAnswerMapping\Index.cshtml" />
-    <Content Include="Views\QuestionAnswerMapping\Details.cshtml" />
-    <Content Include="Views\QuestionAnswerMapping\Create.cshtml" />
-    <Content Include="Views\QuestionAnswerMapping\Edit.cshtml" />
-    <Content Include="Views\QuestionAnswerMapping\Delete.cshtml" />
     <Content Include="Views\QuestionAnswerMapper\Index.cshtml" />
     <Content Include="Views\QuestionAnswerMapper\Details.cshtml" />
     <Content Include="Views\QuestionAnswerMapper\Create.cshtml" />
     <Content Include="Views\QuestionAnswerMapper\Edit.cshtml" />
     <Content Include="Views\QuestionAnswerMapper\Delete.cshtml" />
+    <Content Include="Views\QuestionAnswerMapper\SearchByQuestion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

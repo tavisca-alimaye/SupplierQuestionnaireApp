@@ -17,6 +17,20 @@
 
         @Html.HiddenFor(model => model.SupplierId)
 
+        <div class="display-label">
+            Supplier Name
+        </div>
+        <div class="display-field">
+            @ViewBag.supplierName
+        </div>
+
+        <div class="display-label">
+            Question
+        </div>
+        <div class="display-field">
+            @ViewBag.questionText
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.Answer)
         </div>
