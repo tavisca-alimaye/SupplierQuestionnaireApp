@@ -1,0 +1,22 @@
+﻿@model SupplierQuestionnaire.Models.QuestionAnswerMapping
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>QuestionAnswerMapping</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Answer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Answer)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
